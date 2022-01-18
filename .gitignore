@@ -1,0 +1,5 @@
+/models
+/notebooks
+/data/train_dataset.csv
+/game/__pycache__
+/rl_venv
