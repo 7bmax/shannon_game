@@ -6,6 +6,9 @@ from keras.layers import Dense
 
 import time
 
+from sklearn.ensemble import RandomForestClassifier
+import pickle
+
 def train_and_save_new_model():
     train_df = pd.read_csv("/home/maxime/Documents/shannon_game/data/train_dataset.csv")
     X_train = train_df.loc[:, train_df.columns != 'action']
@@ -13,25 +16,31 @@ def train_and_save_new_model():
 
     depth = train_df.shape[1] - 1
 
-    model = models.Sequential()
+    # model = models.Sequential()
     # model.add(tf.keras.layers.LSTM(depth, 
     #                               input_shape=(depth, len(X_train)), 
     #                               activation='tanh')) 
     # model.add(Dense(depth, activation='relu'))   
     # model.add(Dense(depth*2, activation='relu')) 
     # model.add(Dense(1, activation='sigmoid')) 
-    model.add(Dense(len(X_train), 
-                    input_dim=depth, 
-                    activation='tanh'))
-    model.add(Dense(depth, activation='relu'))
-    model.add(Dense(1, activation='sigmoid'))
+    # model.add(Dense(len(X_train), 
+    #                 input_dim=depth, 
+    #                 activation='tanh'))
+    # model.add(Dense(depth, activation='relu'))
+    # model.add(Dense(1, activation='sigmoid'))
 
     # early_stop = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=10)
 
-    model.compile(loss='categorical_crossentropy', optimizer='sgd', metrics=['accuracy'])
-    model.fit(X_train, y_train, epochs=1000)
+    # model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+    # model.fit(X_train, y_train, epochs=1000)
 
-    model.save('/home/maxime/Documents/shannon_game/models/tensor_model')
+    # model.save('/home/maxime/Documents/shannon_game/models/tensor_model')
+
+    model = RandomForestClassifier()
+    model.fit(X_train, y_train)
+
+    filename = 'random_forest_model.sav'
+    pickle.dump(model, open(filename, 'wb'))
     pass
 
 if __name__ == '__main__':

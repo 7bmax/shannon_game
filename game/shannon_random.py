@@ -24,4 +24,4 @@ def create_dataframes_from_list_play(list_of_play: list, search_depth: int):
     return train_df, X_test
 
 def upload_train_dataset(train_dataset):
-    train_dataset.to_csv("/home/maxime/Documents/RL/data/train_dataset.csv", index=False)
+    train_dataset.to_csv("/home/maxime/Documents/shannon_game/data/train_dataset.csv", index=False)
