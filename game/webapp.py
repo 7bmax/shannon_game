@@ -78,7 +78,7 @@ st.subheader('Do you believe that human can produce randomness?')
 st.markdown('The objective of this experience is to show that __humans cannot '
             'produce randomness__ and that they end up **repeating patterns**.')
 st.markdown('To make it efficient, a high number of turn should be played (250).')
-st.write('Please pick a button and the bot will try to guess which one you pick.')
+st.markdown('Please pick a button **randomly** and the bot will try to guess which one you pick.')
 
 TREE_DEPTH = st.session_state.difficulty_depth
 TREE_COMBINATORY_DEPTH = TREE_DEPTH + 1
