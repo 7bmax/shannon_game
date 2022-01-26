@@ -111,7 +111,7 @@ with st.expander('Sequence depth explanations'):
     st.markdown('For example, if `[Red, Red, Blue, Red]` is played, a `sequence depth` of `2` will result in :')
     example_dataframe = create_dataframes_from_list_play([0, 0, 1, 0], search_depth=2)
     st.dataframe(example_dataframe[0].replace(to_replace={0: 'Red', 1: 'Blue'}))
-    st.markdown('Now, if you play `[Red, Blue]` we can try to predict what you **next action** will be.')
+    st.markdown('Now, if you play `[Red, Blue]` we can try to predict what your **next action** will be.')
 
 st.slider('Sequence Depth',
           min_value=1,
